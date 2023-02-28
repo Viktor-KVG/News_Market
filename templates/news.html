@@ -1,15 +1,17 @@
 {% extends 'flatpages/default.html' %}
 
+{% load custom_filters %}
+
 {% block title %}
 News
 {% endblock title %}
 
 {% block content %}
-   <h1>News Planet</h1>
-   <h3>{{ time_now|date:'d f Y' }}</h3>
+   <h1>News</h1>
+   <h3>{{ time_now|date:'D f Y' }}</h3>
    <!-- Если в переменной next_sale будет None,
    то выведется указанный в фильтре текст -->
-   <h3> {{ next_words|default_if_none:20 }} </h3>
+   <h3> {{ next_words|default_if_none:23 }} </h3>
    <h3> {{ news|length }} </h3>
 
    <hr>
@@ -24,8 +26,8 @@ News
 
            {% for news in news %}
            <tr>
-               <td>{{ news.name }}</td>
-               <td>{{ news.description|truncatewords:2 }}</td>
+               <td>{{ news.name|censor:'начале'}}</td>
+               <td>{{ news.description|censor:'начале', 'секрет' }}</td>
                <td>{{ news.category.name }}</td>
            </tr>
            {% endfor %}
