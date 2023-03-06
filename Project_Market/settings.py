@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.flatpages',
     'simpleapp',
-    'news'
+    'news',
+    'django_filters'
 
 ]
 
