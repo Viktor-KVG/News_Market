@@ -26,8 +26,8 @@ News
 
            {% for news in news %}
            <tr>
-               <td>{{ news.name|censor:'начале'}}</td>
-               <td>{{ news.description|censor:'начале', 'секрет' }}</td>
+               <td>{{ news.name}}</td>
+               <td>{{ news.description }}</td>
                <td>{{ news.category.name }}</td>
            </tr>
            {% endfor %}
